@@ -1,0 +1,19 @@
+{
+    "name": "yahir/dimas-mantenimiento",
+    "description": "Proyecto Php8 MVC",
+    "type": "project",
+    "autoload": {
+        "psr-4": {
+            "MVC\\" : "./",
+            "Controllers\\" : "./controllers",
+            "Models\\" : "./models"
+        }
+    },
+    "authors": [
+        {
+            "name": "Yahir Ortiz",
+            "email": "yahiratzin@gmial.com"
+        }
+    ],
+    "require": {}
+}
