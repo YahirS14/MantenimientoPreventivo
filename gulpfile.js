@@ -12,6 +12,7 @@ const notify = require('gulp-notify');
 const cache = require('gulp-cache');
 const clean = require('gulp-clean');
 const webp = require('gulp-webp');
+const plumber = require('gulp-plumber');
 
 const paths = {
     scss: 'src/scss/**/*.scss',
@@ -22,6 +23,7 @@ const paths = {
 // css es una función que se puede llamar automaticamente
 function css() {
     return src(paths.scss)
+        .pipe(plumber())
         .pipe(sourcemaps.init())
         .pipe(sass())
         .pipe(postcss([autoprefixer(), cssnano()]))
