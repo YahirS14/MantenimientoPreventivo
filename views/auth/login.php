@@ -5,7 +5,12 @@
         <section class="contenedor">
             <h2>Inicia Sesion</h2>
 
-            <form class="formulario">
+            <form class="formulario" method="POST">
+
+            <?php 
+                include_once __DIR__ . "/../templates/alertas.php";
+            ?>
+
                 <div class="contenedor_formulario">
                     <div class="contenido_formulario">
                         <input 
