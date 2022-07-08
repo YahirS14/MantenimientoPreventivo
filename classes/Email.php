@@ -37,11 +37,11 @@ class Email{
         $mail->CharSet = 'UTF-8';
 
         $contenido = "<html>";
-        $contenido .= "<p><strong>Hola" . $this->nombre . "</strong> Has 
+        $contenido .= "<p><strong>Hola " . $this->nombre . "</strong> Has 
         creado tu cuenta en DimasMantenimiento, confirma tu cuenta en el siguiente 
         enlace</p>";
         $contenido .= "<p>Presiona Aqui: <a href=
-        'http://localhost:3000/confirmar-cuenta?token=" . $this->token . "'>
+        'http://localhost:3000/confirmar-cuenta?token=" . $this->token. "'>
         Confirmar Cuenta</a></p>";
         $contenido .= "<p>Si tu no solicitaste esta cuenta, 
         solo ignora el mensaje</p>";

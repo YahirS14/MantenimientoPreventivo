@@ -74,7 +74,7 @@ class ActiveRecord {
     public function sanitizarAtributos() {
         $atributos = $this->atributos();
         $sanitizado = [];
-        foreach($atributos as $key => $value ) {
+        foreach($atributos as $key => $value ){
             $sanitizado[$key] = self::$db->escape_string($value);
         }
         return $sanitizado;
@@ -119,6 +119,13 @@ class ActiveRecord {
     // Obtener Registros con cierta cantidad
     public static function get($limite) {
         $query = "SELECT * FROM " . static::$tabla . " LIMIT ${limite}";
+        $resultado = self::consultarSQL($query);
+        return array_shift( $resultado ) ;
+    }
+
+    // Busca un registro por su id
+    public static function where($columna, $valor) {
+        $query = "SELECT * FROM " . static::$tabla  ." WHERE ${columna} = '${valor}'";
         $resultado = self::consultarSQL($query);
         return array_shift( $resultado ) ;
     }
