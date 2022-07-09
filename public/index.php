@@ -3,6 +3,7 @@
 require_once __DIR__ . '/../includes/app.php';
 
 use Controllers\LoginController;
+use Controllers\MainController;
 use MVC\Router;
 
 $router = new Router();
@@ -29,6 +30,9 @@ $router -> post('/registro', [LoginController::class, 'registro']);
 $router->get('/confirmar-cuenta', [LoginController::class, 'confirmar']);
 
 $router->get('/mensaje', [LoginController::class, 'mensaje']);
+
+//Sesion iniciada
+$router->get('/main', [MainController::class, 'index']);
 
 // Comprueba y valida las rutas, que existan y les asigna las funciones del Controlador
 $router->comprobarRutas();
