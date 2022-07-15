@@ -129,6 +129,12 @@ class ActiveRecord {
         $resultado = self::consultarSQL($query);
         return array_shift( $resultado ) ;
     }
+    // Busca un registro por su id
+    public static function todo() {
+        $query = "SELECT * FROM " . static::$tabla;
+        $resultado = self::consultarSQL($query);;
+        return $resultado;
+    }
 
     // crea un nuevo registro
     public function crear() {

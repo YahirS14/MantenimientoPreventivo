@@ -34,5 +34,14 @@ $router->get('/mensaje', [LoginController::class, 'mensaje']);
 //Sesion iniciada
 $router->get('/main', [MainController::class, 'index']);
 
+//Registros
+$router->get('/nuevo-registro', [MainController::class, 'nuevoRegistro']);    
+$router->post('/nuevo-registro', [MainController::class, 'nuevoRegistro']); 
+
+//Lista de registros
+$router->get('/lista', [MainController::class, 'listaRegistro']); 
+$router->post('/lista', [MainController::class, 'listaRegistro']); 
+
+
 // Comprueba y valida las rutas, que existan y les asigna las funciones del Controlador
 $router->comprobarRutas();
