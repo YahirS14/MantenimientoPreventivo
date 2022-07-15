@@ -10,6 +10,7 @@ class MainController{
     public static function index(Router $router){
         // session_start();
       
+        isAuth();
 
         $router->render('main/main',[
             'nombre' => $_SESSION['nombre']
@@ -30,10 +31,13 @@ class MainController{
                 //guardar el registro
                 $registro->guardar();
 
+                
                 //Redireccionar
                 header('Location: /lista');
             }
         }
+
+        isAuth();
 
         $router->render('main/nuevo-registro',[
             'registro' => $registro,
@@ -44,6 +48,8 @@ class MainController{
     public static function listaRegistro(Router $router){
 
         $registro = Main::todo();
+
+        isAuth();
 
         $router->render('main/lista',[
             'registro' => $registro

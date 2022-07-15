@@ -3,6 +3,9 @@
 ?>
 
 <main>
+    
+
+
     <?php if(count($registro) === 0) {?>
         <p>No hay registros</p>
     <?php } else { ?>

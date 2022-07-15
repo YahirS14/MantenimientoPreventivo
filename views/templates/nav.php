@@ -4,7 +4,7 @@
         <a href="/main"><h1>Dimas <span>Mantenimiento</span></h1></a>
 
         <nav class="navegacion"> 
-            <a href="">Cerrar Sesion</a>
+            <a href="/logout">Cerrar Sesion</a>
         </nav>
     </div>
 
