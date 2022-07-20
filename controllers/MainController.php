@@ -26,7 +26,7 @@ class MainController{
             $registro->sincronizar($_POST);
             //Validacion
             $alertas = $registro->validarRegistro();
-
+             
             if(empty($alertas)){
                 //guardar el registro
                 $registro->guardar();
@@ -53,6 +53,26 @@ class MainController{
 
         $router->render('main/lista',[
             'registro' => $registro
+        ]);
+    }
+
+    public static function busquedaRegistro(Router $router){
+
+
+        $fecha = $_GET['fechaProgramada'] ?? date('Y-m-d');
+        
+        $fechas = explode('-', $fecha); 
+        
+        if(!checkdate($fechas[1], $fechas[2], $fechas[0])){
+            header('Location: /404');
+        }
+
+        $busqueda = Main::where('fechaProgramada', $fecha);
+        // debuguear($busqueda);
+        isAuth();
+        
+        $router->render('main/busqueda', [
+            'busqueda' => $busqueda
         ]);
     }
 }

@@ -1,9 +1,27 @@
 <?php 
     include_once __DIR__ . "/../templates/nav.php";
+
 ?>
 
-<main>
-    
+<main class="main">
+
+    <h2>Busca tus Registros</h2>
+
+    <div>
+        <form action="/busqueda" method="GET">
+            <div class="">
+                <label for="fecha">Fecha Programada</label>
+                <input 
+                    type="date" 
+                    name="fechaProgramada" 
+                    id="fecha"
+                />
+            </div>
+            <div>
+                <input type="submit" value="Buscar">
+            </div>
+        </form>
+    </div>
 
 
     <?php if(count($registro) === 0) {?>
@@ -41,3 +59,9 @@
                 </div>
     <?php } ?>
 </main>
+
+<?php
+
+    $script = "<script src='build/js/app.js'></script>";
+
+?>  

@@ -40,7 +40,11 @@ $router->post('/nuevo-registro', [MainController::class, 'nuevoRegistro']);
 
 //Lista de registros
 $router->get('/lista', [MainController::class, 'listaRegistro']); 
-$router->post('/lista', [MainController::class, 'listaRegistro']); 
+$router->post('/lista', [MainController::class, 'listaRegistro']);
+
+//Busqueda registros 
+$router->get('/busqueda', [MainController::class, 'busquedaRegistro']); 
+$router->post('/busqueda', [MainController::class, 'busquedaRegistro']);
 
 
 // Comprueba y valida las rutas, que existan y les asigna las funciones del Controlador

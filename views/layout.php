@@ -17,6 +17,10 @@
         &copy;</p>
     </footer>
 
+    <?php
+        echo $script ?? '';
+    ?>
+
 
 </body>
 </html>
