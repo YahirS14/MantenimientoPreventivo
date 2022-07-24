@@ -5,7 +5,7 @@
 
 <main class="main">
 
-    <?php if($busqueda === '') {?>
+    <?php if(count($busqueda) === 0)  {?>
         <p>No hay registros</p>
     <?php } else { ?>
                 <div class="contenedor_tabla">
@@ -19,6 +19,8 @@
                                 <th>Frecuencia</th>
                                 <th>Tipo</th>
                                 <th>Observaciones</th>
+                                <th></th>
+                                <th></th>
                             </tr>
                         </thead>
 
@@ -32,6 +34,38 @@
                                     <td><?php echo $busquedas->frecuencia;?></td>
                                     <td><?php echo $busquedas->tipo;?></td>
                                     <td><?php echo $busquedas->observaciones;?></td>
+                                    <td>
+                                    <form action="/actualizar-regitro" method="GET">
+                                        <div>
+                                            <input 
+                                                type="hidden" 
+                                                name="id" 
+                                                value="<?php echo $busquedas->id;?>">
+                                        </div>
+                                        <div>
+                                            <input 
+                                                type="submit" 
+                                                value="Actualizar"
+                                                class="boton_actu">
+                                        </div>
+                                    </form>
+                                    </td>
+                                    <td>
+                                        <form action="/eliminar-regitro" method="POST">
+                                            <div>
+                                                <input 
+                                                    type="hidden" 
+                                                    name="id" 
+                                                    value="<?php echo $busquedas->id;?>">
+                                            </div>
+                                            <div>
+                                                <input 
+                                                    type="submit" 
+                                                    value="Eliminar"
+                                                    class="boton_eli">
+                                            </div>
+                                        </form>
+                                    </td>
                                     <tr></tr>
                                 <?php } ?>
                             </tr>

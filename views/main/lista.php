@@ -38,6 +38,8 @@
                                 <th>Frecuencia</th>
                                 <th>Tipo</th>
                                 <th>Observaciones</th>
+                                <th></th>
+                                <th></th>
                             </tr>
                         </thead>
 
@@ -51,6 +53,38 @@
                                     <td><?php echo $registros->frecuencia;?></td>
                                     <td><?php echo $registros->tipo;?></td>
                                     <td><?php echo $registros->observaciones;?></td>
+                                    <td>
+                                    <form action="/actualizar-regitro" method="GET">
+                                        <div>
+                                            <input 
+                                                type="hidden" 
+                                                name="id" 
+                                                value="<?php echo $registros->id;?>">
+                                        </div>
+                                        <div>
+                                            <input 
+                                                type="submit" 
+                                                value="Actualizar"
+                                                class="boton_actu">
+                                        </div>
+                                    </form>
+                                    </td>
+                                    <td>
+                                        <form action="/eliminar-regitro" method="POST">
+                                            <div>
+                                                <input 
+                                                    type="hidden" 
+                                                    name="id" 
+                                                    value="<?php echo $registros->id;?>">
+                                            </div>
+                                            <div>
+                                                <input 
+                                                    type="submit" 
+                                                    value="Eliminar"
+                                                    class="boton_eli">
+                                            </div>
+                                        </form>
+                                    </td>
                                     <tr></tr>
                                 <?php } ?>
                             </tr>

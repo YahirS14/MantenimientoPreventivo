@@ -67,12 +67,47 @@ class MainController{
             header('Location: /404');
         }
 
-        $busqueda = Main::where('fechaProgramada', $fecha);
+        $busqueda = Main::sql('fechaProgramada', $fecha);
         // debuguear($busqueda);
         isAuth();
         
         $router->render('main/busqueda', [
             'busqueda' => $busqueda
         ]);
+    }
+
+    public static function actualizarRegistro(Router $router){
+
+        $id = is_numeric($_GET["id"]);
+        if(!$id) return;
+        $registro = Main::find($_GET["id"]);
+        $alertas = [];
+
+        if($_SERVER['REQUEST_METHOD'] === 'POST'){
+            $registro->sincronizar($_POST);
+
+            $alertas = $registro->validarRegistro();
+
+            if(empty($alertas)){
+                $registro->guardar();
+                header('Location: /lista');
+            }
+        }
+
+
+        isAuth();
+        $router->render('main/actualizar-regitro', [
+            'registro' => $registro,
+            'alertas' => $alertas
+        ]);
+    }
+    public static function eliminarRegistro(){
+
+        if($_SERVER['REQUEST_METHOD'] === 'POST'){
+
+            $registro = Main::find($_POST['id']);
+            $registro->eliminar();
+            header('Location:' . $_SERVER['HTTP_REFERER']);
+        }
     }
 }

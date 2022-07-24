@@ -46,6 +46,13 @@ $router->post('/lista', [MainController::class, 'listaRegistro']);
 $router->get('/busqueda', [MainController::class, 'busquedaRegistro']); 
 $router->post('/busqueda', [MainController::class, 'busquedaRegistro']);
 
+//Eliminar Registros
+$router->post('/eliminar-regitro', [MainController::class, 'eliminarRegistro']);
+
+//Actualizar registros
+$router->get('/actualizar-regitro', [MainController::class, 'actualizarRegistro']);
+$router->post('/actualizar-regitro', [MainController::class, 'actualizarRegistro']);
+
 
 // Comprueba y valida las rutas, que existan y les asigna las funciones del Controlador
 $router->comprobarRutas();

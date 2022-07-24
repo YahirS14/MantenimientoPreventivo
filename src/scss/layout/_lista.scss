@@ -1,6 +1,6 @@
 @use 'base/variables' as v;
 
-.m
+.main{
     h2{
         text-align: center;
         color: v.$gris;
@@ -9,7 +9,7 @@
 }
 
 .contenedor_tabla{
-    width: 90%;
+    width: 100%;
     margin: 8rem auto;
 }
 .main-lita{
@@ -31,4 +31,18 @@
         color: v.$blanco;
         font-size: 2rem;
     }
+}
+.boton_actu{
+    background-color: v.$verdeExito;
+    border-radius: .5rem;
+    border: none;
+    padding: .5rem;
+    color: v.$blanco;
+}
+.boton_eli{
+    background-color: v.$rojoError;
+    border-radius: .5rem;
+    border: none;
+    padding: .5rem;
+    color: v.$blanco;
 }
