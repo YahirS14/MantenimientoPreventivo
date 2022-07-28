@@ -57,4 +57,45 @@ class Email{
             echo $mail->ErrorInfo;
         }
     }
+
+    public function enviarInstruciones(){
+         //Crear el objeto de email
+         $mail = new PHPMailer();
+         $mail->isSMTP();
+         $mail->Host = 'smtp.mailtrap.io';
+         $mail->SMTPAuth = true;
+         $mail->Port = 2525;
+         $mail->Username = '51a974634755d0';
+         $mail->Password = 'f6a89de18d9b74';
+         $mail->SMTPSecure = 'tls';
+ 
+         $mail->setFrom('dimas@dimas.com');
+         $mail->addAddress('dimas@dimas.com');
+         $mail->Subject = 'Reestablece tu password  ';
+ 
+         //set Html
+         $mail->isHTML(TRUE);
+         $mail->CharSet = 'UTF-8';
+ 
+         $contenido = "<html>";
+         $contenido .= "<p><strong>Hola " . $this->email . "</strong> Has 
+         solicitado reestablecer tu password, ve al siguiente enlace para 
+         continuar</p>";
+         $contenido .= "<p>Presiona Aqui: <a href=
+         'http://localhost:3000/recuperar?token=" . $this->token. "'>
+         Reestablecer Password</a></p>";
+         $contenido .= "<p>Si tu no solicitaste este cambio, 
+         solo ignora el mensaje</p>";
+         $contenido .= "</html>";
+ 
+         $mail->Body = $contenido;
+ 
+         //Enviar el email
+         if($mail->send()){
+             // echo 'mensaje enviado';
+         }else{
+             // echo 'no se envio';
+             echo $mail->ErrorInfo;
+         }
+    }
 }

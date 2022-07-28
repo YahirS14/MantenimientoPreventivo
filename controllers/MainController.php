@@ -61,14 +61,11 @@ class MainController{
 
 
         $fecha = $_GET['fechaProgramada'] ?? date('Y-m-d');
+            
         
-        $fechas = explode('-', $fecha); 
-        
-        if(!checkdate($fechas[1], $fechas[2], $fechas[0])){
-            header('Location: /404');
-        }
-
         $busqueda = Main::sql('fechaProgramada', $fecha);
+        
+
         // debuguear($busqueda);
         isAuth();
         
@@ -104,6 +101,7 @@ class MainController{
     }
     public static function eliminarRegistro(){
 
+        isAuth();
         if($_SERVER['REQUEST_METHOD'] === 'POST'){
 
             $registro = Main::find($_POST['id']);

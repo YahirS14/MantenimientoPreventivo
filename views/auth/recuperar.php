@@ -1,9 +1,8 @@
 <main class="main">
         <a href="index.php"><h1>Mantenimiento <span>Preventivo</span></h1></a>
-        <h2>Crea y Administra tus citas</h2>
+        <h2>¿Olvidaste tu contraseña?</h2>
 
-        <section class="contenedor">
-            <h2>Inicia Sesion</h2>
+        <section class="contenedor login">
 
             <form class="formulario" method="POST">
 
@@ -11,18 +10,12 @@
                 include_once __DIR__ . "/../templates/alertas.php";
             ?>
 
+
+            <?php 
+                if($error)return;
+            ?>
+
                 <div class="contenedor_formulario">
-                    <div class="contenido_formulario">
-                        <input 
-                            type="email" 
-                            id="email" 
-                            class="form_input" 
-                            placeholder=" "
-                            name="email"
-                        />
-                        <label for="email" class="form_label">Email:</label>
-                        <span class="form_line"></span>
-                    </div>
                     <div class="contenido_formulario">
                         <input 
                             type="password" 
@@ -35,11 +28,10 @@
                         <span class="form_line"></span>
                     </div>
 
-                    <input type="submit" class="btn" value="Inisiar Sesion">
+                    <input type="submit" class="btn" value="Guardar nuevo password">
                 </div>
-                <div class="opciones">
-                    <a href="/registro">Crear Cuenta</a>
-                    <a href="/olvide">¿Olvidaste tu contraseña?</a>
+                <div class="opciones registro-btn">
+                    <a href="index.php">¿Ya tienes cuenta? Inicia Sesion Aqui</a>
                 </div>
             </form>
         </section>

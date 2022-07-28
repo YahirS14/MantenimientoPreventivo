@@ -5,6 +5,7 @@ namespace Controllers;
 use Classes\Email;
 use Model\Usuario;
 use MVC\Router;
+use Svg\Tag\UseTag;
 
 class LoginController{
     public static function login(Router $router){
@@ -58,11 +59,84 @@ class LoginController{
     }
 
     public static function olvide(Router $router){
-        $router->render('auth/olvide');
+
+        $alertas = [];
+
+        if($_SERVER['REQUEST_METHOD'] === 'POST'){
+            $auth = new Usuario($_POST);
+            $alertas = $auth->validarEmail();
+
+            if(empty($alertas)){
+                $usuario = Usuario::where('email', $auth->email);
+
+                if($usuario && $usuario->confirmado === "1"){
+                    //Generar token
+                    $usuario->crearToken();
+                    $usuario->guardar();
+
+                    //Enviar Email
+                    $email = new Email($usuario->nombre, $usuario->email, $usuario->token);
+                    $email->enviarInstruciones();
+
+                    //Alerta de exito
+                    Usuario::setAlerta('exito', 'Revisa tu correo');
+                    
+                }else{
+                    Usuario::setAlerta('error', 'EL Usuario no existe o no esta confirmado');
+                }
+            }
+        }
+
+        $alertas = Usuario::getAlertas();
+
+
+
+        $router->render('auth/olvide',[
+            'alertas' => $alertas
+        ]);
     }
 
-    public static function recuperar(){
-        echo 'desde recuperar';
+    public static function recuperar(Router $router){
+
+        $alertas = [];
+        $error = false;
+        $token = s($_GET['token']);
+
+        //Buscar usuario por su token
+        $usuario = Usuario::where('token', $token);
+
+        if(empty($usuario)){
+            Usuario::setAlerta('error', 'token no valido');
+            $error = true;
+        }
+
+        if($_SERVER['REQUEST_METHOD'] === 'POST'){
+            //Leer el nuevo password y guardarlo
+            $password  = new Usuario($_POST);
+
+            $alertas = $password->validarPassword();
+
+            if(empty($alertas)){
+                $usuario->password = null;
+
+                $usuario->password = $password->password;
+                $usuario->hashPassword();
+                $usuario->token = null;
+
+                $resultado = $usuario->guardar();
+                if($resultado){
+                    header('Location: /');
+                }
+
+            }
+        }
+
+        $alertas = Usuario::getAlertas();
+
+        $router->render('auth/recuperar',[
+            'alertas' => $alertas,
+            'error' => $error
+        ]);
     }
 
     public static function registro(Router $router){

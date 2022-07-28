@@ -1,5 +1,5 @@
 <main class="main">
-    <a href="index.php"><h1>Dimas <span>Mantenimiento</span></h1></a>
+    <a href="index.php"><h1>Mantenimiento <span>Preventivo</span></h1></a>
     <h2>Confirma tu cuenta</h2>
 
     <section class="contenedor">

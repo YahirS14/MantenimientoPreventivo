@@ -63,3 +63,33 @@
     text-align: center;
     margin: 0 auto;
 }
+
+
+.buscardor{
+    text-align: center;
+    margin-top: 1rem;
+
+    .bus-fecha{
+        border-radius: 1rem;
+        border: none;
+        background-color: v.$gris;
+    }
+
+    .btn-buscar{
+        background-color: v.$azul;
+        color: v.$blanco;
+        font-size: 2rem;
+        padding: 0 1rem;
+        border-radius: 1rem;
+        border: none;
+        cursor: pointer;
+
+        &:hover{
+            background-color: v.$azulOscuro;
+        }
+    }
+}
+
+.n_registro{
+    text-align: center;
+}

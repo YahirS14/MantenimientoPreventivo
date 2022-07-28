@@ -8,24 +8,26 @@
     <h2>Busca tus Registros</h2>
 
     <div>
-        <form action="/busqueda" method="GET">
-            <div class="">
+        <form action="/busqueda" method="GET"  class="buscardor">
+
+            <div>
                 <label for="fecha">Fecha Programada</label>
                 <input 
                     type="date" 
                     name="fechaProgramada" 
                     id="fecha"
+                    class="bus-fecha"
                 />
             </div>
-            <div>
-                <input type="submit" value="Buscar">
+            <div >
+                <input class="btn-buscar" type="submit" value="Buscar">
             </div>
         </form>
     </div>
 
 
     <?php if(count($registro) === 0) {?>
-        <p>No hay registros</p>
+        <p class="n_registro">No hay registros</p>
     <?php } else { ?>
                 <div class="contenedor_tabla">
                     <table class="main-lita">
@@ -92,10 +94,9 @@
                     </table>
                 </div>
     <?php } ?>
+
+    <div class="btn-funcion">
+        <a href="/main">Inicio</a>
+        <a href="/nuevo-registro">Nuevo Registro</a>
+    </div>
 </main>
-
-<?php
-
-    $script = "<script src='build/js/app.js'></script>";
-
-?>  

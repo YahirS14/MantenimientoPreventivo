@@ -1,11 +1,15 @@
-<!-- <main class="main">
-        <a href="index.php"><h1>Dimas <span>Mantenimiento</span></h1></a>
+<main class="main">
+        <a href="index.php"><h1>Mantenimiento <span>Preventivo</span></h1></a>
         <h2>¿Olvidaste tu contraseña?</h2>
 
         <section class="contenedor login">
-            <h2>Recupera tu contraseña</h2>
 
-            <form class="formulario">
+            <form class="formulario" method="POST">
+
+            <?php 
+                include_once __DIR__ . "/../templates/alertas.php";
+            ?>
+
                 <div class="contenedor_formulario">
                     <div class="contenido_formulario">
                         <input 
@@ -26,22 +30,6 @@
                 </div>
             </form>
         </section>
-    </main> -->
+    </main>
 
 
-
-<?php 
-
-
-
-
-require_once '../library/dompdf/autoload.inc.php';
-use Dompdf\Dompdf;
-$dompdf = new Dompdf();
-$dompdf->loadHtml('hello world');
-$dompdf->render();
-$dompdf->stream();
-
-
-
-?>

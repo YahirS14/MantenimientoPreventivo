@@ -50,4 +50,11 @@ class Main extends ActiveRecord{
         }
         return self::$alertas;
     }
+
+    public function validarBusqueda(){
+        if(!$this->fechaProgramada){
+            self::$alertas['error'][] = 'La fecha programada es obligratorio';
+        }
+        return self::$alertas;
+    }
 }
