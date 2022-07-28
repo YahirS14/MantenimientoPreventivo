@@ -2,6 +2,7 @@
 
 namespace Controllers;
 
+use Classes\Reporte;
 use Model\Main;
 use MVC\Router;
 
@@ -107,7 +108,20 @@ class MainController{
 
             $registro = Main::find($_POST['id']);
             $registro->eliminar();
-            header('Location:' . $_SERVER['HTTP_REFERER']);
+            header('Location: /lista');
         }
+    }
+
+    public static function reporte(Router $router){
+
+        $id = $_GET['id'];
+
+        $reporte = Main::sql('id', $id);
+        // debuguear($reporte);
+
+        isAuth();
+        $router->render('main/reporte', [
+            'reporte' => $reporte
+        ]);
     }
 }

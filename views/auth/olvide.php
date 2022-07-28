@@ -1,4 +1,4 @@
-<main class="main">
+<!-- <main class="main">
         <a href="index.php"><h1>Dimas <span>Mantenimiento</span></h1></a>
         <h2>¿Olvidaste tu contraseña?</h2>
 
@@ -26,4 +26,22 @@
                 </div>
             </form>
         </section>
-    </main>
+    </main> -->
+
+
+
+<?php 
+
+
+
+
+require_once '../library/dompdf/autoload.inc.php';
+use Dompdf\Dompdf;
+$dompdf = new Dompdf();
+$dompdf->loadHtml('hello world');
+$dompdf->render();
+$dompdf->stream();
+
+
+
+?>

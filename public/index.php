@@ -53,6 +53,9 @@ $router->post('/eliminar-regitro', [MainController::class, 'eliminarRegistro']);
 $router->get('/actualizar-regitro', [MainController::class, 'actualizarRegistro']);
 $router->post('/actualizar-regitro', [MainController::class, 'actualizarRegistro']);
 
+//Generar reporte a pdf
+$router->get('/reporte', [MainController::class, 'reporte']);
+$router->post('/reporte', [MainController::class, 'reporte']);
 
-// Comprueba y valida las rutas, que existan y les asigna las funciones del Controlador
+// Comprueba y valida las rutas, que exis tan y les asigna las funciones del Controlador
 $router->comprobarRutas();

@@ -72,5 +72,19 @@
                         </tbody>
                     </table>
                 </div>
+                <form action="/reporte" method="GET">
+                    <div>
+                        <input 
+                            type="hidden" 
+                            name="id" 
+                            value="<?php echo $busquedas->id;?>">
+                    </div>
+                    <div class="reporte">
+                        <input 
+                            type="submit" 
+                            value="Generar Reporte"
+                            class="boton_reporte">
+                        </div>
+                </form>
     <?php } ?>
 </main>
