@@ -1,5 +1,5 @@
 <main class="main">
-        <a href="index.php"><h1>Mantenimiento <span>Preventivo</span></h1></a>
+        <a href="/"><h1>Mantenimiento <span>Preventivo</span></h1></a>
         <h2>Crea y Administra tus citas</h2>
 
         <section class="contenedor">

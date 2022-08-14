@@ -83,7 +83,8 @@
                         <input 
                             type="submit" 
                             value="Generar Reporte"
-                            class="boton_reporte">
+                            class="boton_reporte"
+                            >
                         </div>
                 </form>
     <?php } ?>

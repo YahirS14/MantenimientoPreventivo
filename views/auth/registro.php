@@ -1,5 +1,5 @@
 <main class="main">
-    <a href="index.php">
+    <a href="/">
         <h1>Mantenimiento <span>Preventivo</span></h1>
     </a>
     <h2>Crea una cuenta para administrar tus citas</h2>
@@ -67,7 +67,7 @@
                 <input type="submit" class="btn" value="Crear Cuenta">
             </div>
             <div class="opciones registro-btn">
-                <a href="index.php">¿Ya tienes cuenta? Inicia Sesion Aqui</a>
+                <a href="/">¿Ya tienes cuenta? Inicia Sesion Aqui</a>
             </div>
         </form>
     </section>
